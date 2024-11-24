@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "dev": "nodemon index.js -- --host 0.0.0.0 --port 8089 --cache ./cache"
+    "dev": "nodemon index.js -- --host 0.0.0.0 --port 8089 --cache ./cache",
+    "inspect": "node --inspect index.js --host 0.0.0.0 --port 8089 --cache ./cache"
   },
   "keywords": [],
   "author": "",
