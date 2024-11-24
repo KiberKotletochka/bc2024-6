@@ -1,13 +1,11 @@
-version: '3.8'
 services:
-  app:
-    build: .
-    ports:
-      - "8089:8089"
+  server:
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-      - .:/usr/src/app:delegated
+      - ./:/usr/src/app
+    build:
+      context: .
     environment:
-      - NODE_ENV=development
-    command: ["npx", "nodemon"]
+      NODE_ENV: production
+    ports:
+      - 8089:8089
+      - 9229:9229
