@@ -6,6 +6,8 @@ services:
       - "8089:8089"
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - .:/usr/src/app:delegated
     environment:
       - NODE_ENV=development
-    command: ["npm", "start", "--", "--host", "0.0.0.0", "--port", "8089", "--cache", "./cache"]
+    command: ["npx", "nodemon"]
