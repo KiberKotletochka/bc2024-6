@@ -4,6 +4,10 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require("multer");
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+
+const swaggerDocument = YAML.load('./swagger.yaml');
 
 const app = express();
 
@@ -16,6 +20,8 @@ program.parse();
 const { host, port, cache } = program.opts();
 
 const upload = multer();
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.post('/write', upload.none(), (req, res) => {
     const { note_name, note } = req.body;

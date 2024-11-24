@@ -25,4 +25,4 @@ COPY . .
 
 EXPOSE 8089
 
-CMD npx nodemon -L --inspect=0.0.0.0 index.js --host 0.0.0.0 --port 8089 --cache ./cache
+CMD npx nodemon -L --inspect=0.0.0.0:9229 --watch index.js --watch swagger.yaml --exec node index.js --host 0.0.0.0 --port 8089 --cache ./cache
